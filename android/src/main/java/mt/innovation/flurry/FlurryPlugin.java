@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.flurry.android.FlurryAgent;
 import com.flurry.android.FlurryAgentListener;
+import java.util.HashMap;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -30,8 +31,8 @@ public class FlurryPlugin implements MethodCallHandler {
     this.channel.setMethodCallHandler(this);
   }
 
-  // private void logEvent(String message) {
-  //   FlurryAgent.logEvent(message);
+  // private void logEvent(String message, Map<String, String> params) {
+  //   FlurryAgent.logEvent(message, params);
   // }
 
   private void setUserId(String userId) {
@@ -70,5 +71,4 @@ public class FlurryPlugin implements MethodCallHandler {
       result.notImplemented();
     }
   }
-
 }
