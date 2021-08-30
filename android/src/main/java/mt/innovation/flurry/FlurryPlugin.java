@@ -30,9 +30,9 @@ public class FlurryPlugin implements MethodCallHandler {
     this.channel.setMethodCallHandler(this);
   }
 
-  private void logEvent(String message) {
-    FlurryAgent.logEvent(message);
-  }
+  // private void logEvent(String message) {
+  //   FlurryAgent.logEvent(message);
+  // }
 
   private void setUserId(String userId) {
     FlurryAgent.setUserId(userId);
@@ -53,9 +53,9 @@ public class FlurryPlugin implements MethodCallHandler {
               // result.success(null);
             }
           }).build(activity, API_KEY);
-
+          result.success(null);
     } else if (call.method.equals("logEvent")) {
-     String message = call.argument("message").toString();
+      String message = call.argument("message").toString();
       // logEvent(message, call.argument("params"));
       HashMap<String, String> params = call.argument("params");
       FlurryAgent.logEvent(message, params);
@@ -70,4 +70,5 @@ public class FlurryPlugin implements MethodCallHandler {
       result.notImplemented();
     }
   }
+
 }

@@ -24,16 +24,9 @@ class Flurry {
     return null;
   }
 
-  static Future<Null> logEvent(
-    /// event name
-    String message, {
-
-    /// witn event params
-    Map<String, String> params = const <String, String>{},
-  }) async {
+  static Future<Null> logEvent(String message) async {
     Map<String, dynamic> args = <String, dynamic>{};
     args.putIfAbsent("message", () => message);
-    args.putIfAbsent("params", () => params);
 
     await _channel.invokeMethod('logEvent', args);
     return null;
